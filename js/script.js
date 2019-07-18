@@ -1,24 +1,3 @@
-// let computerMove = `kamień`;
-// let playerMove = 'papier';
-
-// printMessage('Zagrałem ' + computerMove + '! Jeśli Twój ruch to ' + playerMove + ', to wygrywasz!');
-
-
-// let randomFraction = Math.random();
-
-// printMessage('Wylosowany ułamek to: ' + randomFraction);
-
-// let calculation = randomFraction * 3 + 1;
-
-// printMessage('Ułamek pomnożony przez 3 i powiększony o 1: ' + calculation);
-
-// let roundNumber = Math.floor(calculation);
-
-// printMessage('Liczba po zaokrągleniu w dół to: ' + roundNumber);
-
-
-
-
 let randomNumber = Math.floor(Math.random() * 3 + 1);
 
 console.log('Wylosowana liczba to: ' + randomNumber);
@@ -52,25 +31,17 @@ if (playerInput == '1') {
 printMessage('Twój ruch to: ' + playerMove);
 
 
+//operator || =>  if ((warunek)||(warunek))
 
-if (computerMove == 'kamień' && playerMove == 'papier') {
+if ((computerMove == 'kamień' && playerMove == 'papier') || (computerMove == 'papier' && playerMove == 'nożyce') || (computerMove == 'nożyce' && playerMove == 'kamień')) {
     printMessage('Ty wygrywasz!');
-} else if (computerMove == 'kamień' && playerMove == 'nożyce') {
+} else if ((computerMove == 'kamień' && playerMove == 'nożyce') || (computerMove == 'papier' && playerMove == 'kamień') || (computerMove == 'nożyce' && playerMove == 'papier')) {
     printMessage('Ja wygrywam');
-} else if (computerMove == 'kamień' && playerMove == 'kamień') {
-    printMessage('Remis, gramy jeszcze raz');
-} else if (computerMove == 'papier' && playerMove == 'kamień') {
-    printMessage('Ja wygrywam');
-} else if (computerMove == 'papier' && playerMove == 'papier') {
-    printMessage('Remis, gramy jeszcze raz');
-} else if (computerMove == 'papier' && playerMove == 'nożyce') {
-    printMessage('Ty wygrywasz!');
-} else if (computerMove == 'nożyce' && playerMove == 'kamień') {
-    printMessage('Ty wygrywasz!');
-} else if (computerMove == 'nożyce' && playerMove == 'papier') {
-    printMessage('Ja wygrywam');
-} else if (computerMove == 'nożyce' && playerMove == 'nożyce') {
+} else if ((computerMove == 'kamień' && playerMove == 'kamień') || (computerMove == 'papier' && playerMove == 'papier') || (computerMove == 'nożyce' && playerMove == 'nożyce')) {
     printMessage('Remis, gramy jeszcze raz');
 } else {
     printMessage('Błędny ruch, spróbuj ponownie');
 }
+
+
+
