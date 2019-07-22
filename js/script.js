@@ -32,7 +32,7 @@ function playGame(playerInput) {
     function checkEndGame() {
         if (round === 10) {
             if (playerScore > computerScore) alert('Wyrgał gracz!');
-            else if (playerScore < computerScore) alert('Wyrgał komputer');
+            else if (playerScore < computerScore) alert('Wygrał komputer');
             else alert('Remis!');
         }
     }
@@ -45,7 +45,7 @@ function playGame(playerInput) {
             return 'papier';
         }
         else if (argMoveId == '3') {
-            return 'nożyce'
+            return 'nożyce';
         }
         printMessage('Nie znam ruchu o id ' + argMoveId + '.');
         return 'nieznany ruch';
@@ -53,14 +53,14 @@ function playGame(playerInput) {
 
     function displayResult(argComputerMove, argPlayerMove) {
 
-        if ((argComputerMove === 'kamień' && argPlayerMove === 'papier') || (argComputerMove === 'papier' && argPlayerMove === 'nożyce') || (argComputerMove === 'nożyce' && argPlayerMove === 'kamień')) {
+        if ((argComputerMove == 'kamień' && argPlayerMove == 'papier') || (argComputerMove == 'papier' && argPlayerMove == 'nożyce') || (argComputerMove == 'nożyce' && argPlayerMove == 'kamień')) {
             printMessage('Ty wygrywasz!');
             playerScore++;
-        } else if (argComputerMove === argPlayerMove) {
-            printMessage('Remis, gramy jeszcze raz')
-        } else {
-            printMessage('Ty przegrywasz!');
+        } else if ((argComputerMove == 'kamień' && argPlayerMove == 'nożyce') || (argComputerMove == 'papier' && argPlayerMove == 'kamień') || (argComputerMove == 'nożyce' && argPlayerMove == 'papier')) {
+            printMessage('Ty przegrywasz');
             computerScore++;
+        } else if ((argComputerMove == 'kamień' && argPlayerMove == 'kamień') || (argComputerMove == 'papier' && argPlayerMove == 'papier') || (argComputerMove == 'nożyce' && argPlayerMove == 'nożyce')) {
+            printMessage('Remis, gramy jeszcze raz')
         }
 
     }
@@ -70,3 +70,4 @@ function playGame(playerInput) {
 document.querySelector('#pickRock').addEventListener('click', function () { playGame(1) });
 document.querySelector('#pickPaper').addEventListener('click', function () { playGame(2) });
 document.querySelector('#pickScissors').addEventListener('click', function () { playGame(3) });
+
