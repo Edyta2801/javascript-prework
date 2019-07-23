@@ -15,14 +15,18 @@ function playGame(playerInput) {
 
     // ustalamy wybór komputera
     const randomNumber = Math.floor(Math.random() * 3 + 1);
+    console.log(randomNumber);
+    console.log(typeof randomNumber);
     const argComputerMove = getMoveName(randomNumber);
 
     // pokazujemy wybory w html-u
     printMessage('Mój ruch to: ' + argComputerMove);
+    console.log(typeof argComputerMove);
     printMessage('Twój ruch to: ' + argPlayerMove);
+    console.log(typeof argPlayerMove);
 
     // ustalamy zwycięzce
-    displayResult();
+    displayResult(argComputerMove, argPlayerMove);
 
     // sprawdz, czy gra powinna sie skonczyc
     checkEndGame();
@@ -39,6 +43,7 @@ function playGame(playerInput) {
 
     function getMoveName(argMoveId) {
         if (argMoveId == '1') {
+            console.log(typeof argMoveId);
             return 'kamień';
         }
         else if (argMoveId == '2') {
@@ -52,19 +57,19 @@ function playGame(playerInput) {
     }
 
     function displayResult(argComputerMove, argPlayerMove) {
+        console.log(argComputerMove, argPlayerMove);
 
-        if ((argComputerMove == 'kamień' && argPlayerMove == 'papier') || (argComputerMove == 'papier' && argPlayerMove == 'nożyce') || (argComputerMove == 'nożyce' && argPlayerMove == 'kamień')) {
+        if ((argComputerMove === 'kamień' && argPlayerMove === 'papier') || (argComputerMove === 'papier' && argPlayerMove === 'nożyce') || (argComputerMove === 'nożyce' && argPlayerMove === 'kamień')) {
             printMessage('Ty wygrywasz!');
             playerScore++;
-        } else if ((argComputerMove == 'kamień' && argPlayerMove == 'nożyce') || (argComputerMove == 'papier' && argPlayerMove == 'kamień') || (argComputerMove == 'nożyce' && argPlayerMove == 'papier')) {
+        } else if (argComputerMove === argPlayerMove) {
+            console.log(argComputerMove, argPlayerMove);
+            printMessage('Remis, gramy jeszcze raz')
+        } else {
             printMessage('Ty przegrywasz');
             computerScore++;
-        } else if ((argComputerMove == 'kamień' && argPlayerMove == 'kamień') || (argComputerMove == 'papier' && argPlayerMove == 'papier') || (argComputerMove == 'nożyce' && argPlayerMove == 'nożyce')) {
-            printMessage('Remis, gramy jeszcze raz')
         }
-
     }
-
 }
 
 document.querySelector('#pickRock').addEventListener('click', function () { playGame(1) });
