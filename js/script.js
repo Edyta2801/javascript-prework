@@ -4,7 +4,7 @@ let playerScore = 0;
 let computerScore = 0;
 
 function playGame(playerInput) {
-
+clearMessages();
     /* PROCES GŁÓWNY */
 
     //zwiekszamy licznik rundy
