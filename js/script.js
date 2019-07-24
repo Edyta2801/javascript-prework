@@ -4,7 +4,7 @@ let playerScore = 0;
 let computerScore = 0;
 
 function playGame(playerInput) {
-clearMessages();
+    clearMessages();
     /* PROCES GŁÓWNY */
 
     //zwiekszamy licznik rundy
@@ -42,7 +42,6 @@ clearMessages();
 
     function getMoveName(argMoveId) {
         if (argMoveId == '1') {
-
             return 'kamień';
         }
         else if (argMoveId == '2') {
@@ -61,6 +60,7 @@ clearMessages();
         if ((argComputerMove === 'kamień' && argPlayerMove === 'papier') || (argComputerMove === 'papier' && argPlayerMove === 'nożyce') || (argComputerMove === 'nożyce' && argPlayerMove === 'kamień')) {
             printMessage('WYGRYWASZ !');
             playerScore++;
+            $('#wins').html('').append(playerScore);
         } else if (argComputerMove === argPlayerMove) {
 
             printMessage('REMIS !')
@@ -75,3 +75,4 @@ document.querySelector('#pickRock').addEventListener('click', function () { play
 document.querySelector('#pickPaper').addEventListener('click', function () { playGame(2) });
 document.querySelector('#pickScissors').addEventListener('click', function () { playGame(3) });
 
+document.querySelector('#wins').addEventListener('click', function () { displayResult(playerScore) });

@@ -63,4 +63,9 @@ button:hover {
   font-size: 20px;
   height: 200px;
 }
+
+#result {
+  font-size: 18px;
+  color: black;
+}
 /*# sourceMappingURL=style.css.map */
