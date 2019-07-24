@@ -30,7 +30,7 @@ button {
   padding: 20px 25px;
   width: 150px;
   margin: 0px 10px 0px 10px;
-  background-color:white;
+  background-color: white;
   border: 4px solid black;
   border-radius: 3px;
   box-shadow: 2px 2px 2px 0px rgba(168, 168, 168, 1);
@@ -39,13 +39,23 @@ button:hover {
   box-shadow: 6px 6px 8px 0px rgba(168, 168, 168, 1);
 }
 
-#pickRock{
+#pickRock {
   background-color: grey;
 }
-#pickPaper{
-background-color: red;
+#pickPaper {
+  background-color: red;
 }
 
-#pickScissors{
-  background-color: green
+#pickScissors {
+  background-color: green;
+}
+#messages-container {
+  text-align: center;
+  width: 300px;
+  margin: 50px auto 0px;
+}
+
+#messages {
+  font-size: 20px;
+  height: 200px;
 }

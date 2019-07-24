@@ -59,13 +59,13 @@ clearMessages();
 
 
         if ((argComputerMove === 'kamień' && argPlayerMove === 'papier') || (argComputerMove === 'papier' && argPlayerMove === 'nożyce') || (argComputerMove === 'nożyce' && argPlayerMove === 'kamień')) {
-            printMessage('Ty wygrywasz!');
+            printMessage('WYGRYWASZ !');
             playerScore++;
         } else if (argComputerMove === argPlayerMove) {
 
-            printMessage('Remis, gramy jeszcze raz')
+            printMessage('REMIS !')
         } else {
-            printMessage('Ty przegrywasz');
+            printMessage('PRZEGRYWASZ !');
             computerScore++;
         }
     }
