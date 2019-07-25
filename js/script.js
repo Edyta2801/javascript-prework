@@ -67,7 +67,7 @@ function playGame(playerInput) {
         } else {
             printMessage('PRZEGRYWASZ !');
             // computerScore++;
-            document.getElementById("fail").innerHTML = computerScore++;
+            document.getElementById("lost").innerHTML = computerScore++;
         }
     }
 }
