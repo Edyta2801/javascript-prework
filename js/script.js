@@ -70,12 +70,25 @@ function playGame(playerInput) {
             document.getElementById("lost").innerHTML = computerScore++;
         }
     }
+    // function resetScore() {
+    //     computerScore = 0;
+    //     document.getElementById("wins").innerHTML = computerScore;
+    //     playerScore = 0;
+    //     document.getElementById("lost").innerHTML = playerScore;
+    // }
 }
 
 document.querySelector('#pickRock').addEventListener('click', function () { playGame(1) });
 document.querySelector('#pickPaper').addEventListener('click', function () { playGame(2) });
 document.querySelector('#pickScissors').addEventListener('click', function () { playGame(3) });
 
-document.querySelector('#wins').addEventListener('click', function () { displayResult(playerScore) });
+document.getElementById('#resScores').addEventListener('click', function () {
+    resetScore(){
+        computerScore = 0;
+        document.getElementById("wins").innerHTML = computerScore;
+        playerScore = 0;
+        document.getElementById("lost").innerHTML = playerScore;
+    }
+});
 
 
