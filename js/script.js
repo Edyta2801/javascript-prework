@@ -77,13 +77,17 @@ function playGame(playerInput) {
 
 
 function resetGame() {
-    window.location = ''
+    playerScore = computerScore = 0;
+    document.getElementById("wins").innerHTML = playerScore;
+    document.getElementById("lost").innerHTML = computerScore;
 }
+
 
 document.querySelector('#pickRock').addEventListener('click', function () { playGame(1) });
 document.querySelector('#pickPaper').addEventListener('click', function () { playGame(2) });
 document.querySelector('#pickScissors').addEventListener('click', function () { playGame(3) });
 document.querySelector('#resetButton').addEventListener('click', function () { resetGame() });
+
 
 
 
