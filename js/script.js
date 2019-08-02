@@ -1,93 +1,102 @@
+{
+    let round = 0;
+    let playerScore = 0;
+    let computerScore = 0;
+    let resetScore = document.querySelector("resetButton");
 
-let round = 0;
-let playerScore = 0;
-let computerScore = 0;
-let resetScore = document.querySelector("resetButton");
+    const playGame = function (playerInput) {
+        // function playGame(playerInput) {
+        clearMessages();
 
-function playGame(playerInput) {
-    clearMessages();
-    /* PROCES GŁÓWNY */
+        /* PROCES GŁÓWNY */
 
-    //zwiekszamy licznik rundy
-    round++;
+        //zwiekszamy licznik rundy
+        round++;
 
-    // ustalany wybór gracza
-    const argPlayerMove = getMoveName(playerInput);
+        // ustalany wybór gracza
+        const argPlayerMove = getMoveName(playerInput);
 
-    // ustalamy wybór komputera
-    const randomNumber = Math.floor(Math.random() * 3 + 1);
+        // ustalamy wybór komputera
+        const randomNumber = Math.floor(Math.random() * 3 + 1);
 
-    const argComputerMove = getMoveName(randomNumber);
+        const argComputerMove = getMoveName(randomNumber);
 
-    // pokazujemy wybory w html-u
-    printMessage('Mój ruch to: ' + argComputerMove);
+        // pokazujemy wybory w html-u
+        printMessage('Mój ruch to: ' + argComputerMove);
 
-    printMessage('Twój ruch to: ' + argPlayerMove);
-
-
-    // ustalamy zwycięzce
-    displayResult(argComputerMove, argPlayerMove);
-
-    // sprawdz, czy gra powinna sie skonczyc
-    checkEndGame();
+        printMessage('Twój ruch to: ' + argPlayerMove);
 
 
+        // ustalamy zwycięzce
+        displayResult(argComputerMove, argPlayerMove);
 
-    /* FUNKCJE */
+        // sprawdz, czy gra powinna sie skonczyc
+        checkEndGame();
 
-    function checkEndGame() {
-        if (round === 10) {
-            if (playerScore > computerScore) alert('Wyrgał gracz!');
-            else if (playerScore < computerScore) alert('Wygrał komputer');
-            else alert('Remis!');
+
+
+        /* FUNKCJE */
+
+        // const checkEndGame = function () {
+        function checkEndGame() {
+            if (round === 10) {
+                if (playerScore > computerScore) alert('Wyrgał gracz!');
+                else if (playerScore < computerScore) alert('Wygrał komputer');
+                else alert('Remis!');
+            }
+        }
+
+        // const getMoveName = function (argMoveId) {
+        function getMoveName(argMoveId) {
+            if (argMoveId == '1') {
+                return 'kamień';
+            }
+            else if (argMoveId == '2') {
+                return 'papier';
+            }
+            else if (argMoveId == '3') {
+                return 'nożyce';
+            }
+            printMessage('Nie znam ruchu o id ' + argMoveId + '.');
+            return 'nieznany ruch';
+        }
+
+        // const displayResult = function (argComputerMove, argPlayerMove) {
+        function displayResult(argComputerMove, argPlayerMove) {
+
+
+            if ((argComputerMove === 'kamień' && argPlayerMove === 'papier') || (argComputerMove === 'papier' && argPlayerMove === 'nożyce') || (argComputerMove === 'nożyce' && argPlayerMove === 'kamień')) {
+                printMessage('WYGRYWASZ !');
+                // playerScore++;
+                document.getElementById("wins").innerHTML = playerScore++;
+
+            } else if (argComputerMove === argPlayerMove) {
+                printMessage('REMIS !')
+            } else {
+                printMessage('PRZEGRYWASZ !');
+                // computerScore++;
+                document.getElementById("lost").innerHTML = computerScore++;
+            }
         }
     }
 
-    function getMoveName(argMoveId) {
-        if (argMoveId == '1') {
-            return 'kamień';
-        }
-        else if (argMoveId == '2') {
-            return 'papier';
-        }
-        else if (argMoveId == '3') {
-            return 'nożyce';
-        }
-        printMessage('Nie znam ruchu o id ' + argMoveId + '.');
-        return 'nieznany ruch';
+    // const resetGame = function () {
+    function resetGame() {
+        playerScore = computerScore = 0;
+        document.getElementById("wins").innerHTML = playerScore;
+        document.getElementById("lost").innerHTML = computerScore;
     }
 
-    function displayResult(argComputerMove, argPlayerMove) {
 
-
-        if ((argComputerMove === 'kamień' && argPlayerMove === 'papier') || (argComputerMove === 'papier' && argPlayerMove === 'nożyce') || (argComputerMove === 'nożyce' && argPlayerMove === 'kamień')) {
-            printMessage('WYGRYWASZ !');
-            // playerScore++;
-            document.getElementById("wins").innerHTML = playerScore++;
-
-        } else if (argComputerMove === argPlayerMove) {
-            printMessage('REMIS !')
-        } else {
-            printMessage('PRZEGRYWASZ !');
-            // computerScore++;
-            document.getElementById("lost").innerHTML = computerScore++;
-        }
-    }
+    document.querySelector('#pickRock').addEventListener('click', function () { playGame(1) });
+    // document.querySelector('#pickRock').addEventListener('click', playGame(1), false);
+    document.querySelector('#pickPaper').addEventListener('click', function () { playGame(2) });
+    // document.querySelector('#pickPaper').addEventListener('click', playGame(2));
+    document.querySelector('#pickScissors').addEventListener('click', function () { playGame(3) });
+    // document.querySelector('#pickPaper').addEventListener('click', playGame(2));
+    document.querySelector('#resetButton').addEventListener('click', function () { resetGame() });
+    // document.querySelector('#resetButton').addEventListener('click', resetGame);
 }
-
-
-function resetGame() {
-    playerScore = computerScore = 0;
-    document.getElementById("wins").innerHTML = playerScore;
-    document.getElementById("lost").innerHTML = computerScore;
-}
-
-
-document.querySelector('#pickRock').addEventListener('click', function () { playGame(1) });
-document.querySelector('#pickPaper').addEventListener('click', function () { playGame(2) });
-document.querySelector('#pickScissors').addEventListener('click', function () { playGame(3) });
-document.querySelector('#resetButton').addEventListener('click', function () { resetGame() });
-
 
 
 
