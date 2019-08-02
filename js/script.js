@@ -30,21 +30,21 @@
         // ustalamy zwycięzce
         displayResult(argComputerMove, argPlayerMove);
 
-        // sprawdz, czy gra powinna sie skonczyc
-        checkEndGame();
-
 
 
         /* FUNKCJE */
 
-        // const checkEndGame = function () {
-        function checkEndGame() {
+        // sprawdz, czy gra powinna sie skonczyc
+        const checkEndGame = function () {
+            // function checkEndGame() {
             if (round === 10) {
-                if (playerScore > computerScore) alert('Wyrgał gracz!');
+                if (playerScore > computerScore) alert('Wygrał gracz!');
                 else if (playerScore < computerScore) alert('Wygrał komputer');
                 else alert('Remis!');
             }
         }
+        checkEndGame();
+
 
         // const getMoveName = function (argMoveId) {
         function getMoveName(argMoveId) {
@@ -85,6 +85,7 @@
         playerScore = computerScore = 0;
         document.getElementById("wins").innerHTML = playerScore;
         document.getElementById("lost").innerHTML = computerScore;
+        
     }
 
 
