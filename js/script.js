@@ -60,6 +60,7 @@
             printMessage('Nie znam ruchu o id ' + argMoveId + '.');
             return 'nieznany ruch';
         }
+        // getMoveName();
 
         // const displayResult = function (argComputerMove, argPlayerMove) {
         function displayResult(argComputerMove, argPlayerMove) {
@@ -80,12 +81,11 @@
         }
     }
 
-    // const resetGame = function () {
-    function resetGame() {
+    const resetGame = function () {
+    // function resetGame() {
         playerScore = computerScore = 0;
         document.getElementById("wins").innerHTML = playerScore;
         document.getElementById("lost").innerHTML = computerScore;
-        
     }
 
 
