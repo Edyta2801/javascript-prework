@@ -28,7 +28,7 @@
 
 
         // ustalamy zwycięzce
-        displayResult(argComputerMove, argPlayerMove);
+        // displayResult(argComputerMove, argPlayerMove);
 
 
 
@@ -62,8 +62,8 @@
         }
         // getMoveName();
 
-        // const displayResult = function (argComputerMove, argPlayerMove) {
-        function displayResult(argComputerMove, argPlayerMove) {
+        const displayResult = function (argComputerMove, argPlayerMove) {
+            // function displayResult(argComputerMove, argPlayerMove) {
 
 
             if ((argComputerMove === 'kamień' && argPlayerMove === 'papier') || (argComputerMove === 'papier' && argPlayerMove === 'nożyce') || (argComputerMove === 'nożyce' && argPlayerMove === 'kamień')) {
@@ -79,10 +79,10 @@
                 document.getElementById("lost").innerHTML = computerScore++;
             }
         }
+        displayResult(argComputerMove, argPlayerMove);
     }
 
     const resetGame = function () {
-    // function resetGame() {
         playerScore = computerScore = 0;
         document.getElementById("wins").innerHTML = playerScore;
         document.getElementById("lost").innerHTML = computerScore;
