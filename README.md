@@ -1,1 +1,1 @@
-https://edyta2801.github.io/javascript-prework/
+https://edyta2801.github.io/rock-paper-scissors/
