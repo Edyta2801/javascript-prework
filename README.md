@@ -3,7 +3,7 @@
 
 
 ## Screenshot
-![Example screenshot](./imgages/screenshot.png)
+![Example screenshot](./images/screenshot.png)
 
 ## Technologies
 * HTML
