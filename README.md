@@ -2,7 +2,7 @@
 > Simple JavaScript game.
 
 
-## Screenshots
+## Screenshot
 ![Example screenshot](./imgages/screenshot.png)
 
 ## Technologies
